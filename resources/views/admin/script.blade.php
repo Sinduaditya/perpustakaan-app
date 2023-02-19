@@ -5,12 +5,23 @@
  <!-- Core plugin JavaScript-->
  <script src="{{ asset('./dist/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 
- <!-- Custom scripts for all pages-->
- <script src="{{ asset('./dist/vendor/chart.js/Chart.min.js') }}"></script>
 
  <!-- Page level plugins -->
- <script src="{{ asset('./dist/vendor/chart.js/Chart.min.js') }}"></script>
+ <script src="{{ asset('./dist/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+ <script src="{{ asset('./dist/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
 
- <!-- Page level custom scripts -->
- <script src="{{ asset('./dist/js/demo/chart-area-demo.js') }}"></script>
- <script src="{{ asset('./dist/js/demo/chart-pie-demo.js') }}"></script>
+
+
+ {{-- ckeditor --}}
+ <script>
+     ClassicEditor
+         .create(document.querySelector('#sinopsiseditor'))
+         .catch(error => {
+             console.error(error);
+         });
+
+     $('#dataTable').DataTable({
+         info: false,
+         showing: false,
+     });
+ </script>
