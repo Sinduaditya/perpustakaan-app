@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Borrow;
 
 class BorrowController extends Controller
 {
@@ -13,7 +14,8 @@ class BorrowController extends Controller
      */
     public function index()
     {
-        //
+        $data['borrows'] = Borrow::orderBy('id_pinjam','desc')->paginate(5);
+        return \view('admin.layouts.borrows.borrow', $data);
     }
 
     /**
@@ -23,7 +25,7 @@ class BorrowController extends Controller
      */
     public function create()
     {
-        //
+        return \view('admin.layouts.borrows.create');
     }
 
     /**
@@ -34,8 +36,19 @@ class BorrowController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+
+        $pinjam = $request->validate([
+            'no_user' => 'required',
+            'kode_buku' => 'required',
+            'judul_buku' => 'required',
+            'jumlah' => 'required',
+            'tgl_pinjam' => 'required',
+            'tgl_kembali' => 'required',
+        ]);
+
+        Borrow::create($pinjam);
+        return \redirect()->route('borrows.index')->with('success','Borrow has been created successfully');
+}
 
     /**
      * Display the specified resource.
@@ -56,7 +69,7 @@ class BorrowController extends Controller
      */
     public function edit($id)
     {
-        //
+        return \view('admin.layouts.borrows.edit');
     }
 
     /**
@@ -68,7 +81,17 @@ class BorrowController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'no_user' => 'required',
+            'kode_buku' => 'required',
+            'judul_buku' => 'required',
+            'jumlah' => 'required',
+            'tgl_pinjam' => 'required',
+            'tgl_kembali' => 'required',
+        ]);
+
+        Borrow::where('id_pinjam', $id)->update($data);
+        return \redirect()->route('borrows.index')->with('success','User has been updated successfully');
     }
 
     /**
@@ -79,6 +102,7 @@ class BorrowController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $borrow = Borrow::where('id_pinjam', $id)->delete();
+        return \redirect()->route('borrows.index')->with('success','Borrow has been deleted successfully');
     }
 }

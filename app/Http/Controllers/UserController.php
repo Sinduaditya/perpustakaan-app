@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $data['users'] = User::orderBy('id_user','desc')->paginate(5);
+        $data['users'] = User::orderBy('id_user','desc')->paginate(6);
         return \view('admin.layouts.users.user', $data);
     }
 
@@ -44,7 +44,6 @@ class UserController extends Controller
             'no_telepon' => 'required',
             'roles' => 'required',
         ]);
-
         User::create($user);
         return \redirect()->route('users.index')->with('success','User has been created successfully');
 
@@ -82,7 +81,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $data = $request->validate([
             'username' => 'required',
             'password' => 'required',
             'alamat' => 'required',
@@ -91,8 +90,8 @@ class UserController extends Controller
             'roles' => 'required',
         ]);
 
-        $user = User::find('id_user', $id)->$request->get();
-        return \redirect->route('users.index')->with('success','User has been updated successfully');
+        User::where('id_user', $id)->update($data);
+        return \redirect()->route('users.index')->with('success','User has been updated successfully');
     }
 
     /**

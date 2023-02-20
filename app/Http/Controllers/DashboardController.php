@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Book;
 use App\Models\User;
+use App\Models\Borrow;
 
 
 class DashboardController extends Controller
@@ -15,7 +16,8 @@ class DashboardController extends Controller
 
         $totalsBook = Book::count();
         $totalsUser = User::count();
-        return \view('admin.layouts.dashboard',compact('totalsBook','totalsUser'));
+        $totalsBorrow = Borrow::count();
+        return \view('admin.layouts.dashboard',compact('totalsBook','totalsUser','totalsBorrow'));
     }
 
 }

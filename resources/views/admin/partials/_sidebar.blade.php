@@ -52,8 +52,8 @@
         Konfirmasi
     </div>
 
-    <li class="nav-item">
-        <a href="#" class="nav-link">
+    <li class="nav-item {{ request()->RouteIs('borrows.index') ? 'active' : '' }}">
+        <a href="{{ route('borrows.index') }}" class="nav-link">
             <i class="fas fa-fw fa-newspaper"></i>
             <span>Peminjaman</span>
         </a>
@@ -66,7 +66,6 @@
         </a>
     </li>
 
-    <!-- Sidebar Toggler (Sidebar) -->
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>

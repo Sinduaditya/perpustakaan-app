@@ -95,7 +95,7 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
+        $data = $request->validate([
             'kode_buku' => 'required',
             'kode_buku' => 'required',
             'judul_buku' => 'required',
@@ -110,7 +110,7 @@ class BookController extends Controller
         ]);
 
 
-        $book =  Book::find('id_buku',$id)->$request->get();
+        $book =  Book::where('id_buku',$id)->update($data);
         return \redirect()->route('books.index')->with('success', 'Book has been updated successfully');
     }
 
