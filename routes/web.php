@@ -20,8 +20,15 @@ use App\Http\Controllers\DashboardController;
 */
 
 
-Route::get('/',HomeController::class);
+Route::controller(HomeController::class)->group(function(){
+    Route::get('/','home')->name('home');
+    Route::get('/details  ','detail')->name('details');
+    Route::get('/borrows','borrow')->name('borrows');
+    Route::get('/returns','return')->name('returns');
+
+});
+
 Route::resource('/dashboard/borrows', BorrowController::class);
 Route::resource('/dashboard/books', BookController::class);
 Route::resource('/dashboard/users', UserController::class);
-Route::get('/dashboard',[DashboardController::class,'dashBoard'])->name('home');
+Route::get('/dashboard',[DashboardController::class,'dashBoard'])->name('dashboard');

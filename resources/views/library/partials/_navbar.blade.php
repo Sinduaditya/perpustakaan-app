@@ -16,9 +16,9 @@
                         Books
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Library</a></li>
-                        <li><a class="dropdown-item" href="#">Borrow</a></li>
-                        <li><a class="dropdown-item" href="#">Return</a></li>
+                        <li><a class="dropdown-item" href="#library">Library</a></li>
+                        <li><a class="dropdown-item" href="{{ route('borrows') }}">Borrow</a></li>
+                        <li><a class="dropdown-item" href="{{ route('returns') }}">Return</a></li>
                     </ul>
                 </li>
                 <li class="nav-item">
