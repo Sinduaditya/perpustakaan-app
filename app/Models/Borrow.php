@@ -12,10 +12,12 @@ class Borrow extends Model
     protected $table = 'pinjaman';
     protected $fillable = [
         'no_user',
+        'username',
         'kode_buku',
         'judul_buku',
         'jumlah',
         'tgl_pinjam',
         'tgl_kembali',
+        'status',
     ];
 }

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BorrowController;
@@ -19,10 +20,8 @@ use App\Http\Controllers\DashboardController;
 */
 
 
-
-// Route::get('/books',[BookController::class,'index'])->name('books.index');
-// Route::get('/books/create',[BookController::class,'create'])->name('books.create');
-Route::resource('/borrows', BorrowController::class);
-Route::resource('/books', BookController::class);
-Route::resource('/users', UserController::class);
-Route::get('/',[DashboardController::class,'dashBoard'])->name('home');
+Route::get('/',HomeController::class);
+Route::resource('/dashboard/borrows', BorrowController::class);
+Route::resource('/dashboard/books', BookController::class);
+Route::resource('/dashboard/users', UserController::class);
+Route::get('/dashboard',[DashboardController::class,'dashBoard'])->name('home');

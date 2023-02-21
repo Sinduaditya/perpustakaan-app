@@ -14,9 +14,9 @@ class BookController extends Controller
      */
     public function index()
     {
-
-        $data['books'] = Book::orderBy('id_buku','desc')->paginate(5);
-        return view('admin.layouts.books.buku', $data);
+        $books = Book::latest()->paginate(5);
+        // $data['books'] = Book::orderBy('id_buku','desc')->paginate(5);
+        return view('admin.layouts.books.buku', compact('books'));
 
     }
 
@@ -48,7 +48,7 @@ class BookController extends Controller
             'tahun_terbit' => 'required',
             'sinopsis_buku' => 'required',
             'kategori' => 'required',
-            'cover_buku' => 'required',
+            'cover_buku' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         if ($request->hasFile('cover_buku')) {

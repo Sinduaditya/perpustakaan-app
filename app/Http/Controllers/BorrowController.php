@@ -39,11 +39,13 @@ class BorrowController extends Controller
 
         $pinjam = $request->validate([
             'no_user' => 'required',
+            'username' => 'required',
             'kode_buku' => 'required',
             'judul_buku' => 'required',
             'jumlah' => 'required',
             'tgl_pinjam' => 'required',
             'tgl_kembali' => 'required',
+            'status' => 'required',
         ]);
 
         Borrow::create($pinjam);
@@ -83,11 +85,13 @@ class BorrowController extends Controller
     {
         $data = $request->validate([
             'no_user' => 'required',
+            'username' => 'required',
             'kode_buku' => 'required',
             'judul_buku' => 'required',
             'jumlah' => 'required',
             'tgl_pinjam' => 'required',
             'tgl_kembali' => 'required',
+            'status' => 'required',
         ]);
 
         Borrow::where('id_pinjam', $id)->update($data);

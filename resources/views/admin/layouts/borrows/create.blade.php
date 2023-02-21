@@ -37,6 +37,19 @@
                                 @enderror
                             </div>
                             <div class="form-group col-md-6">
+                                <label for="username">Username</label>
+                                <input type="text" name="username" class="form-control" id="username"
+                                    placeholder="Masukkan username">
+                                @error('username')
+                                    <div class="alert alert-danger mt-1 mb-1">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
                                 <label for="kodebuku">Kode Buku</label>
                                 <input type="text" name="kode_buku" class="form-control" id="kodebuku"
                                     placeholder="Masukkan kode buku yang di pinjam">
@@ -47,17 +60,17 @@
                                     </div>
                                 @enderror
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="judul_buku">Judul Buku</label>
-                            <input type="text" name="judul_buku" class="form-control" id="judul_buku"
-                                placeholder="Masukkan judul buku yang di pinjam">
-                            @error('judul_buku')
-                                <div class="alert alert-danger mt-1 mb-1">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>
-                                    {{ $message }}
-                                </div>
-                            @enderror
+                            <div class="form-group col-md-6">
+                                <label for="judul_buku">Judul Buku</label>
+                                <input type="text" name="judul_buku" class="form-control" id="judul_buku"
+                                    placeholder="Masukkan judul buku yang di pinjam">
+                                @error('judul_buku')
+                                    <div class="alert alert-danger mt-1 mb-1">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -86,6 +99,20 @@
                                 <label for="tglkembali">Tanggal Kembali</label>
                                 <input type="date" name="tgl_kembali" class="form-control" id="tglkembali"
                                     placeholder="Masukkan Tanggal Kembali">
+                                @error('tgl_kambali')
+                                    <div class="alert alert-danger mt-1 mb-1">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for="status">Status</label>
+                                <select class="form-control" name="status" id="status">
+                                    <option>Menunggu</option>
+                                    <option>Terkonfirmasi</option>
+                                    <option>Gagal</option>
+                                </select>
                                 @error('tgl_kambali')
                                     <div class="alert alert-danger mt-1 mb-1">
                                         <button type="button" class="close" data-dismiss="alert">×</button>

@@ -96,8 +96,8 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="coverbuku">Cover</label>
-                                <input type="file" value="{{ $book->cover_buku }}" name="cover_buku"
-                                    class="form-control" id="coverbuku">
+                                <input type="file" name="cover_buku" class="form-control" id="coverbuku">
+                                <img src="/buku/{{ $book->cover_buku }}" alt="">
                                 @error('cover_buku')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror

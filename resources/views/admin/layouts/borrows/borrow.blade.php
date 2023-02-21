@@ -29,11 +29,13 @@
                             <thead>
                                 <tr>
                                     <th>No User</th>
+                                    <th>Username</th>
                                     <th>Kode Buku</th>
                                     <th>Judul Buku</th>
                                     <th>Jumlah</th>
-                                    <th>Tanggal Pinjam</th>
+                                    {{-- <th>Tanggal Pinjam</th> --}}
                                     <th>Tanggal kembali</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -41,11 +43,13 @@
                                 @foreach ($borrows as $borrow)
                                     <tr>
                                         <td>{{ $borrow->no_user }}</td>
+                                        <td>{{ $borrow->username }}</td>
                                         <td>{{ $borrow->kode_buku }}</td>
                                         <td>{{ $borrow->judul_buku }}</td>
                                         <td>{{ $borrow->jumlah }}</td>
-                                        <td>{{ $borrow->tgl_pinjam }}</td>
+                                        {{-- <td>{{ $borrow->tgl_pinjam }}</td> --}}
                                         <td>{{ $borrow->tgl_kembali }}</td>
+                                        <td>{{ $borrow->status }}</td>
                                         <td>
                                             <form action="{{ route('borrows.destroy', $borrow->id_pinjam) }}"
                                                 method="POST">

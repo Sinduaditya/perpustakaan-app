@@ -72,9 +72,9 @@
                             <div class="form-group col-md-6">
                                 <label for="roles">Roles</label>
                                 <select class="form-control" name="roles" id="roles">
-                                    <option class="text-primary">Admin</option>
-                                    <option class="text-success">Siswa</option>
-                                    <option class="text-info">Pustakawan</option>
+                                    <option>Admin</option>
+                                    <option>Siswa</option>
+                                    <option>Pustakawan</option>
                                 </select>
                                 @error('roles')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
