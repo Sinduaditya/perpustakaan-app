@@ -106,11 +106,16 @@ class BookController extends Controller
             'tahun_terbit' => 'required',
             'sinopsis_buku' => 'required',
             'kategori' => 'required',
-            // 'cover_buku' => 'required',
+            'cover_buku' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
+        if ($request->hasFile('cover_buku')) {
+            $path = $request->file('cover_buku')->store('buku');
 
-        $book =  Book::where('id_buku',$id)->update($data);
+            $data['cover_buku'] = $path;
+        }
+
+        Book::where('id_buku',$id)->update($data);
         return \redirect()->route('books.index')->with('success', 'Book has been updated successfully');
     }
 

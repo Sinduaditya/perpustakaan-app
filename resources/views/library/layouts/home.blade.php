@@ -15,203 +15,35 @@
             </div>
         </div>
         <div class="container-fluid" id="library">
-            <div class="px-lg-5 mt-4">
+            <div class="px-lg-5 mt-4 ">
                 <h3 class="mb-3">Daftar Buku</h3>
-                <div class="row">
-                    <!-- Book item -->
-                    <div class="col-xl-3 col-lg-4 col-md-6  mb-4">
-                        <div class="bg-white rounded-lg shadow-lg"><img src="{{ asset('images/pangeran diponegoro.jpg') }}"
-                                alt="bukuone" class="img-fluid card-img-top">
-                            <div class="p-4">
-                                <h5>Filosofi Teras</h5>
-                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </p>
-                                <div
-                                    class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
-                                            class="font-weight-bold">Stok</span>
-                                    </p>
-                                    <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                        <a href="" class="text-white fw-thin" style="text-decoration: none;">
-                                            Pinjam
-                                        </a>
+                <div class="container">
+                    <div class="row">
+                        @foreach ($books as $book)
+                            <div class="col-lg-3">
+                                <div class="card-buku mx-auto shadow-lg">
+                                    <img src="{{ asset('storage/' . $book->cover_buku) }}" alt="">
+                                    <div class="deskripsi-box p-2">
+                                        <h3>{{ $book->judul_buku }}</h3>
+                                        <p>Pengarang : {{ $book->penggarang }}</p>
+                                        <p>Penerbit : {{ $book->penerbit }}</p>
+                                        <div
+                                            class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                                            <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
+                                                    class="font-weight-bold">Stok: {{ $book->jumlah }}</span>
+                                            </p>
+                                            <div class="btncol  px-3 p-1 p-auto rounded-pill">
+                                                <a href="" class="text-white fw-thin" style="text-decoration: none;">
+                                                    Detail
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
-                    <!-- End -->
-
-                    <!-- Book item -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="bg-white rounded-lg shadow-lg"><img src="{{ asset('images/pangeran diponegoro.jpg') }}"
-                                alt="bukuone" class="img-fluid card-img-top">
-                            <div class="p-4">
-                                <h5>Filosofi Teras</h5>
-                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </p>
-                                <div
-                                    class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
-                                            class="font-weight-bold">Stok</span>
-                                    </p>
-                                    <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                        <a href="" class="text-white fw-thin" style="text-decoration: none;">
-                                            Pinjam
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Book item -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="bg-white rounded-lg shadow-lg"><img src="{{ asset('images/pangeran diponegoro.jpg') }}"
-                                alt="bukuone" class="img-fluid card-img-top">
-                            <div class="p-4">
-                                <h5>Filosofi Teras</h5>
-                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </p>
-                                <div
-                                    class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
-                                            class="font-weight-bold">Stok</span>
-                                    </p>
-                                    <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                        <a href="" class="text-white fw-thin" style="text-decoration: none;">
-                                            Pinjam
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Book item -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="bg-white rounded-lg shadow-lg"><img src="{{ asset('images/pangeran diponegoro.jpg') }}"
-                                alt="bukuone" class="img-fluid card-img-top">
-                            <div class="p-4">
-                                <h5>Filosofi Teras</h5>
-                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </p>
-                                <div
-                                    class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
-                                            class="font-weight-bold">Stok</span>
-                                    </p>
-                                    <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                        <a href="" class="text-white fw-thin" style="text-decoration: none;">
-                                            Pinjam
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Book item -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="bg-white rounded-lg shadow-lg"><img src="{{ asset('images/pangeran diponegoro.jpg') }}"
-                                alt="bukuone" class="img-fluid card-img-top">
-                            <div class="p-4">
-                                <h5>Filosofi Teras</h5>
-                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </p>
-                                <div
-                                    class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
-                                            class="font-weight-bold">Stok</span>
-                                    </p>
-                                    <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                        <a href="" class="text-white fw-thin" style="text-decoration: none;">
-                                            Pinjam
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Book item -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="bg-white rounded-lg shadow-lg"><img src="{{ asset('images/pangeran diponegoro.jpg') }}"
-                                alt="bukuone" class="img-fluid card-img-top">
-                            <div class="p-4">
-                                <h5>Filosofi Teras</h5>
-                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </p>
-                                <div
-                                    class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
-                                            class="font-weight-bold">Stok</span>
-                                    </p>
-                                    <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                        <a href="" class="text-white fw-thin" style="text-decoration: none;">
-                                            Pinjam
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Book item -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="bg-white rounded-lg shadow-lg"><img
-                                src="{{ asset('images/pangeran diponegoro.jpg') }}" alt="bukuone"
-                                class="img-fluid card-img-top">
-                            <div class="p-4">
-                                <h5>Filosofi Teras</h5>
-                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </p>
-                                <div
-                                    class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
-                                            class="font-weight-bold">Stok</span>
-                                    </p>
-                                    <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                        <a href="" class="text-white fw-thin" style="text-decoration: none;">
-                                            Pinjam
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End -->
-
-                    <!-- Book item -->
-                    <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
-                        <div class="bg-white rounded-lg shadow-lg"><img
-                                src="{{ asset('images/pangeran diponegoro.jpg') }}" alt="bukuone"
-                                class="img-fluid card-img-top">
-                            <div class="p-4">
-                                <h5>Filosofi Teras</h5>
-                                <p class="small text-muted mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </p>
-                                <div
-                                    class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
-                                    <p class="small mb-0"><i class="fa fa-picture-o mr-2"></i><span
-                                            class="font-weight-bold">Stok</span>
-                                    </p>
-                                    <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                        <a href="" class="text-white fw-thin" style="text-decoration: none;">
-                                            Pinjam
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End -->
-
+                    <br><br><br><br><br>
 
                 </div>
             </div>
