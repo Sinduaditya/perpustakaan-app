@@ -33,6 +33,7 @@
 
 .form-control {
     border-radius: 7px;
+    padding-right: 250px;
     border: 1.5px solid #E3E6ED;
 }
 
@@ -55,7 +56,7 @@ input.form-control:focus {
 @media screen and (max-width: 450px) {
     .card {
         display: flex;
-        justify-content: center;
+        justify-content: start;
         text-align: center;
     }
 }
@@ -84,22 +85,11 @@ input.form-control:focus {
     text-decoration: none;
 }
 
-
-/* .card-buku {
-    width: 325px;
-    height: 475px;
-}
-
-.card-bukcard-bukuu img {
-    width: 100%;
-    height: 20%;
-} */
-
 .card-buku {
     width: 250px;
     height: 100%;
     padding: 10px;
-    background-color: rgb(255, 255, 255);
+    background-color: white;
     border-radius: 16px;
 }
 
@@ -108,3 +98,6 @@ input.form-control:focus {
     height: fit-content;
     border-radius: 8px;
 }
+
+
+/* bg-login */

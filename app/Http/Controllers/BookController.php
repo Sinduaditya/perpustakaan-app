@@ -112,7 +112,7 @@ class BookController extends Controller
         if ($request->hasFile('cover_buku')) {
             $path = $request->file('cover_buku')->store('buku');
 
-            $data['cover_buku'] = $path;
+            $data['cover_buku'] = $path     ;
         }
 
         Book::where('id_buku',$id)->update($data);

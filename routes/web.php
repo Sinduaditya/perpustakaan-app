@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
@@ -22,10 +23,14 @@ use App\Http\Controllers\DashboardController;
 
 Route::controller(HomeController::class)->group(function(){
     Route::get('/','home')->name('home');
-    Route::get('/details  ','detail')->name('details');
+    Route::get('/book/detail/{id_buku}','show')->name('book.detail');
     Route::get('/borrows','borrow')->name('borrows');
     Route::get('/returns','return')->name('returns');
+});
 
+Route::controller(AuthController::class)->group(function(){
+    Route::get('/login','login')->name('auth.login');
+    Route::get('/register','register')->name('auth.register');
 });
 
 Route::resource('/dashboard/borrows', BorrowController::class);

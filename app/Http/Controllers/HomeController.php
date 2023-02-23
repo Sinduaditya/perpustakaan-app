@@ -12,8 +12,10 @@ class HomeController extends Controller
         return \view('library.layouts.home', compact('books'));
     }
 
-    public function detail(){
-        return \view('library.layouts.details');
+    public function show($id){
+
+        $books = Book::where('id_buku', $id);
+        return \view('library.layouts.details', compact('books'));
     }
 
     public function borrow(){

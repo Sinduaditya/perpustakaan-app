@@ -3,10 +3,13 @@
 @section('content')
     <div class="home">
         <div class="jumbotron">
-            <h1 class="fw-bold ">Selamat Datang Di Aplikasi E-perpustakaan</h1>
+            <h1 class="fw-bold ">Halo Sindu👋,
+                <br>
+                Selamat Datang Di Aplikasi E-Perpustakaan
+            </h1>
         </div>
         <div class="container d-flex justify-content-center">
-            <div class="card mt-5 p-4">
+            <div class="cardsrc mt-5 p-4">
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" placeholder="Cari Judul Buku">
                     <div class="input-group-append"><button class="btn btn-primary"><i class="fas fa-search"></i></button>
@@ -22,7 +25,7 @@
                         @foreach ($books as $book)
                             <div class="col-lg-3">
                                 <div class="card-buku mx-auto shadow-lg">
-                                    <img src="{{ asset('storage/' . $book->cover_buku) }}" alt="">
+                                    <img src="{{ asset('storage/' . $book->cover_buku) }}" alt="buku">
                                     <div class="deskripsi-box p-2">
                                         <h3>{{ $book->judul_buku }}</h3>
                                         <p>Pengarang : {{ $book->penggarang }}</p>
@@ -33,7 +36,8 @@
                                                     class="font-weight-bold">Stok: {{ $book->jumlah }}</span>
                                             </p>
                                             <div class="btncol  px-3 p-1 p-auto rounded-pill">
-                                                <a href="" class="text-white fw-thin" style="text-decoration: none;">
+                                                <a href="{{ route('book.detail', $book->id_buku) }}"" method="POST"
+                                                    class="text-white fw-thin" style="text-decoration: none;">
                                                     Detail
                                                 </a>
                                             </div>
@@ -44,7 +48,6 @@
                         @endforeach
                     </div>
                     <br><br><br><br><br>
-
                 </div>
             </div>
         </div>
