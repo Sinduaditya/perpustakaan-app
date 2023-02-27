@@ -26,14 +26,23 @@ Route::controller(HomeController::class)->group(function(){
     Route::get('/book/detail/{id_buku}','show')->name('book.detail');
     Route::get('/borrows','borrow')->name('borrows');
     Route::get('/returns','return')->name('returns');
+    Route::get('/Book/search','search')->name('search');
+});
+
+
+Route::group(['middleware' => ['auth', 'isAdmin']], function(){
+    Route::get('/dashboard',[DashboardController::class,'dashBoard'])->name('dashboard');
+    Route::resource('/dashboard/borrows', BorrowController::class);
+    Route::resource('/dashboard/books', BookController::class);
+    Route::resource('/dashboard/users', UserController::class);
 });
 
 Route::controller(AuthController::class)->group(function(){
-    Route::get('/login','login')->name('auth.login');
-    Route::get('/register','register')->name('auth.register');
+    Route::middleware('guest')->group(function () {
+        Route::get('login','index')->name('login');
+        Route::post('custom-login','customLogin')->name('login.custom');
+        Route::get('register','registration')->name('register');
+        Route::post('custom-registrations','customRegistration')->name('register.custom');
+    });
+    Route::get('signout','signOut')->middleware('auth')->name('signout');
 });
-
-Route::resource('/dashboard/borrows', BorrowController::class);
-Route::resource('/dashboard/books', BookController::class);
-Route::resource('/dashboard/users', UserController::class);
-Route::get('/dashboard',[DashboardController::class,'dashBoard'])->name('dashboard');

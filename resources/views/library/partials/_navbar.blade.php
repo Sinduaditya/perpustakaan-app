@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ">
     <div class="container-fluid ">
-        <a class="navbar-brand fs-3 fw-bold p-1" href="#">E-Perpustakaan</a>
+        <a class="navbar-brand fs-3 fw-bold p-1" href="{{ route('home') }}">E-Perpustakaan</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -21,12 +21,18 @@
                         <li><a class="dropdown-item" href="{{ route('returns') }}">Return</a></li>
                     </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('auth.login') }}">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('auth.register') }}">Register</a>
-                </li>
+                @auth
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('signout') }}">Logout</a>
+                    </li>
+                @else
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Register</a>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>

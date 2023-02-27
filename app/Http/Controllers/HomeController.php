@@ -14,8 +14,8 @@ class HomeController extends Controller
 
     public function show($id){
 
-        $books = Book::where('id_buku', $id);
-        return \view('library.layouts.details', compact('books'));
+        $book = Book::where('id_buku', $id)->first();
+        return \view('library.layouts.details', compact('book'));
     }
 
     public function borrow(){
@@ -24,5 +24,14 @@ class HomeController extends Controller
 
     public function return(){
         return \view('library.layouts.returns');
+    }
+
+    public function search(Request $request){
+        if($request->has('search')){
+            $books = Book::where('judul_buku','LIKE','%'.$request->search.'%')->get();
+        } else{
+            $books = Book::all()->with('success','Tidak ada buku yang di maksud');
+        }
+            return view('library.layouts.home',['books'=> $books]);
     }
 }

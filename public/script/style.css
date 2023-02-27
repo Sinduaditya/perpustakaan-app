@@ -100,4 +100,13 @@ input.form-control:focus {
 }
 
 
-/* bg-login */
+/* details*/
+
+.rounded-22 {
+    border-radius: 22px;
+}
+
+.img-detail {
+    width: 40vh;
+    margin-bottom: 0px;
+}

@@ -3,19 +3,22 @@
 @section('content')
     <div class="home">
         <div class="jumbotron">
-            <h1 class="fw-bold ">Halo Sindu👋,
+            <h1 class="fw-bold ">Halo👋
                 <br>
                 Selamat Datang Di Aplikasi E-Perpustakaan
             </h1>
         </div>
         <div class="container d-flex justify-content-center">
-            <div class="cardsrc mt-5 p-4">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Cari Judul Buku">
-                    <div class="input-group-append"><button class="btn btn-primary"><i class="fas fa-search"></i></button>
+            <form action="/Book/search" method="get">
+                <div class="cardsrc mt-5 p-4">
+                    <div class="input-group mb-3">
+                        <input type="search" name="search" class="form-control" placeholder="Cari Judul Buku">
+                        <div class="input-group-append"><button class="btn btn-primary" type="submit"><i
+                                    class="fas fa-search"></i></button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="container-fluid" id="library">
             <div class="px-lg-5 mt-4 ">

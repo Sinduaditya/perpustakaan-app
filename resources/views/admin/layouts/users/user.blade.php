@@ -30,7 +30,7 @@
                             <thead>
                                 <tr>
                                     <th>Username</th>
-                                    <th>Password</th>
+                                    {{-- <th>Password</th> --}}
                                     <th>Alamat</th>
                                     <th>No User</th>
                                     <th>Telepon</th>
@@ -42,7 +42,7 @@
                                 @foreach ($users as $user)
                                     <tr>
                                         <td>{{ $user->username }}</td>
-                                        <td>{{ $user->password }}</td>
+                                        {{-- <td>{{ $user->password }}</td> --}}
                                         <td>{{ $user->alamat }}</td>
                                         <td>{{ $user->no_user }}</td>
                                         <td>{{ $user->no_telepon }}</td>

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('alamat');
             $table->integer('no_user');
-            $table->integer('no_telepon');
+            $table->bigInteger('no_telepon');
             $table->string('roles');
             $table->timestamps();
         });

@@ -27,14 +27,22 @@
                                             <br>E-Perpustakaan
                                         </h1>
                                     </div>
-                                    <form class="user">
+                                    <form class="user" method="POST" action="{{ route('login.custom') }}">
+                                        @csrf
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                placeholder="Masukkan username anda">
+                                            <input type="text" name="no_user" class="form-control form-control-user"
+                                                placeholder="Masukkan no user anda" required>
+                                            @if ($errors->has('no_user'))
+                                                <span class="text-danger">{{ $errors->first('no_user') }}</span>
+                                            @endif
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user"
-                                                placeholder="Masukkan password anda">
+                                            <input type="password" name="password"
+                                                class="form-control form-control-user"
+                                                placeholder="Masukkan password anda" required>
+                                            @if ($errors->has('password'))
+                                                <span class="text-danger">{{ $errors->first('password') }}</span>
+                                            @endif
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -43,17 +51,13 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <a href="#" class="btn btn-primary btn-user btn-block">
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">
                                             Login
-                                        </a>
+                                        </button>
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="#">Lupa
-                                            Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="{{ route('auth.register') }}">Daftar</a>
+                                        <a class="small" href="{{ route('register') }}">Daftar</a>
                                     </div>
                                 </div>
                             </div>
