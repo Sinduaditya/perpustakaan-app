@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -44,6 +45,7 @@ class UserController extends Controller
             'no_telepon' => 'required',
             'roles' => 'required',
         ]);
+        $user['password'] = Hash::make($user['password']);
         User::create($user);
         return \redirect()->route('users.index')->with('success','User has been created successfully');
 
@@ -89,7 +91,7 @@ class UserController extends Controller
             'no_telepon' => 'required',
             'roles' => 'required',
         ]);
-
+        $data['password'] = Hash::make($data['password']);
         User::where('id_user', $id)->update($data);
         return \redirect()->route('users.index')->with('success','User has been updated successfully');
     }
@@ -102,7 +104,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::where('id_user', $id)->delete();
+        User::where('id_user', $id)->delete();
         return \redirect()->route('users.index')->with('success','User has been deleted successfully');
     }
 }

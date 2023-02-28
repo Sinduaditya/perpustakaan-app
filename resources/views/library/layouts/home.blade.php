@@ -3,12 +3,12 @@
 @section('content')
     <div class="home">
         <div class="jumbotron">
-            <h1 class="fw-bold ">Halo👋
+            <h1 class="fw-bold selamat">Halo👋
                 <br>
                 Selamat Datang Di Aplikasi E-Perpustakaan
             </h1>
         </div>
-        <div class="container d-flex justify-content-center">
+        <div class="container d-flex justify-content-center" id="library">
             <form action="/Book/search" method="get">
                 <div class="cardsrc mt-5 p-4">
                     <div class="input-group mb-3">
@@ -20,7 +20,7 @@
                 </div>
             </form>
         </div>
-        <div class="container-fluid" id="library">
+        <div class="container-fluid">
             <div class="px-lg-5 mt-4 ">
                 <h3 class="mb-3">Daftar Buku</h3>
                 <div class="container">

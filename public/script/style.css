@@ -110,3 +110,7 @@ input.form-control:focus {
     width: 40vh;
     margin-bottom: 0px;
 }
+
+.selamat:hover {
+    letter-spacing: 1px;
+}

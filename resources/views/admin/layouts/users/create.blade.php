@@ -10,7 +10,7 @@
             <div class="card shadow mb-4 ">
                 <div class="card-header py-3">
                     <div class="d-flex justify-content-end">
-                        <a href="{{ route('books.index') }}" class="btn btn-primary">
+                        <a href="{{ route('users.index') }}" class="btn btn-primary">
                             <i class="fas fa-fw fa-arrow-alt-circle-right "></i>
                             Kambali
                         </a>
@@ -64,7 +64,7 @@
                             <div class="form-group col-md-6">
                                 <label for="telepon">No Telepon</label>
                                 <input type="number" name="no_telepon" class="form-control" id="telepon"
-                                    placeholder="Masukkan Penerbit">
+                                    placeholder="Masukkan no telepon">
                                 @error('no_telepon')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                                 @enderror
