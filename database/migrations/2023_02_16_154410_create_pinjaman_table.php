@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
+
+
     /**
      * Run the migrations.
      *
@@ -15,16 +17,14 @@ return new class extends Migration
     {
         Schema::create('pinjaman', function (Blueprint $table) {
             $table->id('id_pinjam');
-            $table->integer('no_user');
-            $table->string('username');
-            $table->string('kode_buku');
-            $table->string('judul_buku');
-            $table->integer('jumlah');
             $table->date('tgl_pinjam');
-            $table->date('tgl_kembali');
-            $table->string('status');   
+            $table->integer('duration');
+            $table->integer('jumlah');
+            $table->string('status');
             $table->integer('denda')->nullable();
             $table->timestamps();
+            $table->foreignId('id_buku')->constrained('buku', 'id_buku')->onDelete('cascade');
+            $table->foreignId('id_user')->constrained('user', 'id_user')->onDelete('cascade');
         });
     }
 

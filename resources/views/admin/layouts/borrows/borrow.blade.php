@@ -17,7 +17,7 @@
                         </a>
                     </div>
                 </div>
-                @if ($message = Session::get('success'))
+                @if ($message = session()->get('success'))
                     <div class="alert alert-success m-2">
                         <button type="button" class="close" data-dismiss="alert">×</button>
                         <p>{{ $message }}</p>
@@ -28,13 +28,11 @@
                         <table class="table table-bordered" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th>No User</th>
-                                    <th>Username</th>
-                                    <th>Kode Buku</th>
-                                    <th>Judul Buku</th>
+                                    <th>Buku</th>
+                                    <th>Peminjam</th>
+                                    <th>Tanggal Pinjam</th>
+                                    <th>Durasi</th>
                                     <th>Jumlah</th>
-                                    {{-- <th>Tanggal Pinjam</th> --}}
-                                    <th>Tanggal kembali</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -42,13 +40,11 @@
                             <tbody>
                                 @foreach ($borrows as $borrow)
                                     <tr>
-                                        <td>{{ $borrow->no_user }}</td>
-                                        <td>{{ $borrow->username }}</td>
-                                        <td>{{ $borrow->kode_buku }}</td>
-                                        <td>{{ $borrow->judul_buku }}</td>
+                                        <td>{{ $borrow->book->judul_buku }}</td>
+                                        <td>{{ $borrow->user->username }}</td>
+                                        <td>{{ $borrow->tgl_pinjam }}</td>
+                                        <td>{{ $borrow->duration }}</td>
                                         <td>{{ $borrow->jumlah }}</td>
-                                        {{-- <td>{{ $borrow->tgl_pinjam }}</td> --}}
-                                        <td>{{ $borrow->tgl_kembali }}</td>
                                         <td>{{ $borrow->status }}</td>
                                         <td>
                                             <form action="{{ route('borrows.destroy', $borrow->id_pinjam) }}"

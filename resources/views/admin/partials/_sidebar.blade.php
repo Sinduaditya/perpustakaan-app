@@ -52,7 +52,7 @@
         Konfirmasi
     </div>
 
-    <li class="nav-item {{ request()->RouteIs('borrows.index') ? 'active' : '' }}">
+    <li class="nav-item {{ request()->RouteIs('borrows.index', 'borrows.edit') ? 'active' : '' }}">
         <a href="{{ route('borrows.index') }}" class="nav-link">
             <i class="fas fa-fw fa-newspaper"></i>
             <span>Peminjaman</span>

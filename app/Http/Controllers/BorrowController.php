@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Borrow;
+use App\Models\Book;
+use App\Models\User;
 
 class BorrowController extends Controller
 {
@@ -34,22 +36,11 @@ class BorrowController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
 
-        $pinjam = $request->validate([
-            'no_user' => 'required',
-            'username' => 'required',
-            'kode_buku' => 'required',
-            'judul_buku' => 'required',
-            'jumlah' => 'required',
-            'tgl_pinjam' => 'required',
-            'tgl_kembali' => 'required',
-            'status' => 'required',
-        ]);
 
-        Borrow::create($pinjam);
-        return \redirect()->route('borrows.index')->with('success','Borrow has been created successfully');
+
 }
 
     /**
@@ -71,7 +62,8 @@ class BorrowController extends Controller
      */
     public function edit($id)
     {
-        return \view('admin.layouts.borrows.edit');
+        $borrow = Borrow::where('id_pinjam', $id)->first();
+        return \view('admin.layouts.borrows.edit', compact('borrow'));
     }
 
     /**
@@ -84,13 +76,6 @@ class BorrowController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->validate([
-            'no_user' => 'required',
-            'username' => 'required',
-            'kode_buku' => 'required',
-            'judul_buku' => 'required',
-            'jumlah' => 'required',
-            'tgl_pinjam' => 'required',
-            'tgl_kembali' => 'required',
             'status' => 'required',
         ]);
 
@@ -106,7 +91,7 @@ class BorrowController extends Controller
      */
     public function destroy($id)
     {
-        $borrow = Borrow::where('id_pinjam', $id)->delete();
+        Borrow::where('id_pinjam', $id)->delete();
         return \redirect()->route('borrows.index')->with('success','Borrow has been deleted successfully');
     }
 }

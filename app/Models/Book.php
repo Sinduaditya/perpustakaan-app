@@ -9,6 +9,8 @@ class Book extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id_buku';
+
     protected $table = 'buku';
 
     protected $fillable = [
@@ -23,5 +25,11 @@ class Book extends Model
         'kategori',
         'cover_buku'
     ];
+
+
+    public function borrows()
+    {
+        return $this->hasMany(Borrow::class, 'id_buku');
+    }
 
 }

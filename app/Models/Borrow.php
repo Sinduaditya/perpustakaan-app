@@ -9,15 +9,30 @@ class Borrow extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
+
+    protected $primaryKey = 'id_pinjam';
     protected $table = 'pinjaman';
     protected $fillable = [
-        'no_user',
-        'username',
-        'kode_buku',
-        'judul_buku',
-        'jumlah',
         'tgl_pinjam',
-        'tgl_kembali',
+        'duration',
+        'jumlah',
         'status',
+        'id_buku',
+        'id_user',
     ];
+
+    protected $casts = [
+        'tgl_pinjam' => 'datetime',
+    ];
+
+    public function book() {
+        return $this->belongsTo(Book::class, 'id_buku');
+    }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
 }

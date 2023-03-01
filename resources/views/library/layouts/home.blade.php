@@ -3,7 +3,7 @@
 @section('content')
     <div class="home">
         <div class="jumbotron">
-            <h1 class="fw-bold selamat">Halo👋
+            <h1 class="fw-bold ">Halo👋
                 <br>
                 Selamat Datang Di Aplikasi E-Perpustakaan
             </h1>

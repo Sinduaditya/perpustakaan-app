@@ -113,7 +113,7 @@
                                     <option>Terkonfirmasi</option>
                                     <option>Gagal</option>
                                 </select>
-                                @error('tgl_kambali')
+                                @error('status')
                                     <div class="alert alert-danger mt-1 mb-1">
                                         <button type="button" class="close" data-dismiss="alert">×</button>
                                         {{ $message }}

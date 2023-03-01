@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MybookController;
 use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\DashboardController;
 
@@ -24,11 +25,12 @@ use App\Http\Controllers\DashboardController;
 Route::controller(HomeController::class)->group(function(){
     Route::get('/','home')->name('home');
     Route::get('/book/detail/{id_buku}','show')->name('book.detail');
-    Route::get('/borrows','borrow')->name('borrows');
     Route::get('/returns','return')->name('returns');
     Route::get('/Book/search','search')->name('search');
+    Route::get('/borrows','borrow')->name('borrows');
 });
 
+Route::post('/my-books/{book}', [MyBookController::class, 'store'])->name('my-books.store');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function(){
     Route::get('/dashboard',[DashboardController::class,'dashBoard'])->name('dashboard');

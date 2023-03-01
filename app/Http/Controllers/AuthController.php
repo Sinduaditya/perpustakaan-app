@@ -20,6 +20,7 @@ class AuthController extends Controller
             'password' => 'required|min:6',
         ]);
 
+
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
@@ -27,7 +28,7 @@ class AuthController extends Controller
                         ->with('success','Behasil Masuk ');
         }
 
-        return back()->withErrors(['no_user' => 'Nomor atau password salah!']);;
+        return back()->withErrors(['no_user' => 'Ada yang salah!']);;
     }
 
     public function registration()

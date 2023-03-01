@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Borrow;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,8 @@ class HomeController extends Controller
     }
 
     public function borrow(){
-        return \view('library.layouts.borrows');
+        $borrows = Borrow::latest('id_pinjam')->paginate(3);
+        return \view('library.layouts.borrows', compact('borrows'));
     }
 
     public function return(){
