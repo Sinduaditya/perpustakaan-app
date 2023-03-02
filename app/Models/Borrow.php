@@ -24,7 +24,7 @@ class Borrow extends Model
     ];
 
     protected $casts = [
-        'tgl_pinjam' => 'datetime',
+        'tgl_pinjam' => 'date',
     ];
 
     public function book() {

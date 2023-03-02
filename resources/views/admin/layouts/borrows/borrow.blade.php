@@ -9,14 +9,6 @@
         </div>
         <div class="container-fluid">
             <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <div class="d-flex justify-content-end">
-                        <a href="{{ route('borrows.create') }}" class="btn btn-primary">
-                            <i class="fas fa-fw fa-plus"></i>
-                            Tambah
-                        </a>
-                    </div>
-                </div>
                 @if ($message = session()->get('success'))
                     <div class="alert alert-success m-2">
                         <button type="button" class="close" data-dismiss="alert">×</button>
@@ -25,7 +17,7 @@
                 @endif
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Buku</th>
@@ -42,7 +34,7 @@
                                     <tr>
                                         <td>{{ $borrow->book->judul_buku }}</td>
                                         <td>{{ $borrow->user->username }}</td>
-                                        <td>{{ $borrow->tgl_pinjam }}</td>
+                                        <td>{{ $borrow->tgl_pinjam->locale('id_ID')->isoFormat('LL') }}</td>
                                         <td>{{ $borrow->duration }}</td>
                                         <td>{{ $borrow->jumlah }}</td>
                                         <td>{{ $borrow->status }}</td>

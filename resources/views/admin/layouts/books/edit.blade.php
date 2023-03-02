@@ -79,6 +79,7 @@
                                     id="statusbuku">
                                     <option>{{ $book->status_buku }}</option>
                                     <option>Tidak Tersedia</option>
+                                    <option>Tersedia</option>
                                 </select>
                                 @error('status_buku')
                                     <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>

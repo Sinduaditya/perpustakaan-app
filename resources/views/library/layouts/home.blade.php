@@ -3,7 +3,12 @@
 @section('content')
     <div class="home">
         <div class="jumbotron">
-            <h1 class="fw-bold ">Halo👋
+            <h1 class="fw-bold ">
+                @auth
+                    Halo👋{{ Auth()->user()->username }}
+                @else
+                    Halo👋
+                @endauth
                 <br>
                 Selamat Datang Di Aplikasi E-Perpustakaan
             </h1>
@@ -25,7 +30,7 @@
                 <h3 class="mb-3">Daftar Buku</h3>
                 <div class="container">
                     <div class="row">
-                        @foreach ($books as $book)
+                        @forelse ($books as $book)
                             <div class="col-lg-3">
                                 <div class="card-buku mx-auto shadow-lg">
                                     <img src="{{ asset('storage/' . $book->cover_buku) }}" alt="buku">
@@ -48,12 +53,17 @@
                                     </div>
                                 </div>
                             </div>
-                        @endforeach
+                        @empty
+                            <div class="alert">
+                                <Span>Tidak Ada Data Yang Di Maksud</Span>
+                            </div>
                     </div>
-                    <br><br><br><br><br>
+                    @endforelse
                 </div>
+                <br><br><br><br><br>
             </div>
         </div>
+    </div>
     </div>
 
 @endsection

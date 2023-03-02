@@ -42,7 +42,7 @@ class User extends Authenticatable
 
 
     public function borrows() {
-        return $this->hasMany(Borrow::class);
+        return $this->hasMany(Borrow::class, 'id_pinjam');
     }
     /**
      * The attributes that should be cast.

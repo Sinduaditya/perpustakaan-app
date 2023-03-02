@@ -114,3 +114,11 @@ input.form-control:focus {
 .selamat:hover {
     letter-spacing: 1px;
 }
+
+
+/* Alert */
+
+.alert {
+    background-color: #a586b8;
+    color: white;
+}

@@ -29,7 +29,7 @@ class MybookController extends Controller
             'duration' => ['required', 'numeric'],
         ]);
 
-
+        
         Borrow::create([
             'tgl_pinjam' => now(),
             'duration' => $request->duration,
@@ -40,7 +40,7 @@ class MybookController extends Controller
         ]);
 
 
-        return redirect()->route('borrows')->with('success', 'Berhasil mengajukan peminjaman!');
+        return redirect()->route('borrows')->with('success', 'Berhasil Mengajukan Peminjaman!');
     }
 
     public function update(Request $request){
