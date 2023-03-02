@@ -31,11 +31,26 @@
                                                     &nbsp;{{ $item->jumlah }}
                                                 </span>
                                             </p>
-                                            <div class="btncol px-3 p-1 p-auto rounded-pill">
-                                                <div class="text-white fw-thin" style="text-decoration: none;">
-                                                    {{ $item->status }}
+                                            @if ($item->status == 'Terkonfirmasi')
+                                                <div class=" bg-status px-3 p-1 p-auto rounded-pill">
+                                                    <div class="text-white fw-thin">
+                                                        {{ $item->status }}
+                                                    </div>
                                                 </div>
-                                            </div>
+                                            @elseif ($item->status == 'Gagal')
+                                                <div class="bg-danger px-3 p-1 p-auto rounded-pill">
+                                                    <div class="text-white fw-thin">
+                                                        {{ $item->status }}
+                                                    </div>
+                                                </div>
+                                            @else
+                                                <div class="btncol px-3 p-1 p-auto rounded-pill">
+                                                    <div class="text-white fw-thin">
+                                                        {{ $item->status }}
+                                                    </div>
+                                                </div>
+                                            @endif
+
                                         </div>
                                     </div>
                                 </div>

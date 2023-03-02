@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Borrow;
 
 class ReturnController extends Controller
 {
@@ -13,7 +14,8 @@ class ReturnController extends Controller
      */
     public function index()
     {
-        //
+        $data['returns'] = Borrow::orderBy('id_pinjam', 'desc')->paginate(5);
+        return view('admin.layouts.returns.return', $data);
     }
 
     /**

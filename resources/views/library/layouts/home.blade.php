@@ -31,8 +31,8 @@
                 <div class="container">
                     <div class="row">
                         @forelse ($books as $book)
-                            <div class="col-lg-3">
-                                <div class="card-buku mx-auto shadow-lg">
+                            <div class="col-lg-3 mb-5 ">
+                                <div class="card-buku mx-auto  shadow-lg">
                                     <img src="{{ asset('storage/' . $book->cover_buku) }}" alt="buku">
                                     <div class="deskripsi-box p-2">
                                         <h3>{{ $book->judul_buku }}</h3>

@@ -21,6 +21,7 @@ class Borrow extends Model
         'status',
         'id_buku',
         'id_user',
+        'denda',
     ];
 
     protected $casts = [

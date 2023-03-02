@@ -8,7 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\MybookController;
 use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\ReturnController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +37,7 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function(){
     Route::resource('/dashboard/borrows', BorrowController::class);
     Route::resource('/dashboard/books', BookController::class);
     Route::resource('/dashboard/users', UserController::class);
+    Route::resource('/dashboard/returns', ReturnController::class);
 });
 
 Route::controller(AuthController::class)->group(function(){

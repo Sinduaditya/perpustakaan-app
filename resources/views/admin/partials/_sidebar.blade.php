@@ -59,8 +59,8 @@
         </a>
     </li>
 
-    <li class="nav-item">
-        <a href="#" class="nav-link">
+    <li class="nav-item {{ request()->RouteIs('returns.index') ? 'active' : '' }}">
+        <a href="{{ route('returns.index') }}" class="nav-link">
             <i class="fas fa-fw fa-book-open"></i>
             <span>Pengembalian</span>
         </a>

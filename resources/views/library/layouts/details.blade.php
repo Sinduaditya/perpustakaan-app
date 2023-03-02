@@ -6,8 +6,8 @@
             <div class="col-md-10 col-lg-8 mt-5">
                 <div class="shadow rounded-22 ">
                     <div class="d-lg-flex gap-5 m-5 ">
-                        <img src="{{ asset('storage/' . $book->cover_buku) }}" class="img-detail p-3 rounded-22" alt=".."
-                            srcset="">
+                        <img src="{{ asset('storage/' . $book->cover_buku) }}" class="img-detail  mt-auto mb-auto rounded-22"
+                            alt=".." srcset="">
                         <div class="mt-5 ">
                             <h2>{{ $book->judul_buku }}</h2>
                             <div class="d-flex justify-content-between p-4">
@@ -24,7 +24,9 @@
                                 </ul>
                             </div>
                             {!! $book->sinopsis_buku !!}
-
+                            <a href="{{ route('home') }}" class="btn btn-primary p-1 px-3" style="text-decoration: none;">
+                                Kembali
+                            </a>
                             @if (auth()->check())
                                 <form action="{{ route('my-books.store', $book) }}" method="POST">
                                     @csrf
@@ -44,10 +46,6 @@
                                             @break
 
                                             @default
-                                                <a href="{{ route('home') }}" class="btn btn-primary p-1 px-3"
-                                                    style="text-decoration: none;">
-                                                    Kembali
-                                                </a>
                                                 <button type="submit" class="btn btn-primary  px-3 p-1 p-auto">
                                                     Pinjam
                                                 </button>

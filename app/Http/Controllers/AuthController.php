@@ -28,7 +28,7 @@ class AuthController extends Controller
                         ->with('success','Behasil Masuk ');
         }
 
-        return back()->withErrors(['no_user' => 'Ada yang salah!']);;
+        return back()->withErrors(['no_user' => 'Nomer dan Password Salah']);;
     }
 
     public function registration()

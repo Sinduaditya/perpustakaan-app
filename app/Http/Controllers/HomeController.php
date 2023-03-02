@@ -20,7 +20,7 @@ class HomeController extends Controller
     }
 
     public function borrow(Book $book){
-        $borrows = Borrow::where('id_user', auth()->id())->latest('id_pinjam')->paginate(3);
+        $borrows = Borrow::where('id_user', auth()->id())->latest('id_pinjam')->paginate(5);
         return \view('library.layouts.borrows', compact('borrows'));
     }
 
