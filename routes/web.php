@@ -9,6 +9,7 @@ use App\Http\Controllers\MybookController;
 use App\Http\Controllers\BorrowController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReturnController;
+use Illuminate\Routing\Route as RoutingRoute;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,13 +32,18 @@ Route::controller(HomeController::class)->group(function(){
 });
 
 Route::post('/my-books/{book}', [MyBookController::class, 'store'])->name('my-books.store');
+Route::post('/my-returns/{borrow}', [MyBookController::class, 'update'])->name('my-books.update');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function(){
-    Route::get('/dashboard',[DashboardController::class,'dashBoard'])->name('dashboard');
-    Route::resource('/dashboard/borrows', BorrowController::class);
-    Route::resource('/dashboard/books', BookController::class);
     Route::resource('/dashboard/users', UserController::class);
+    Route::resource('/dashboard/borrows', BorrowController::class);
     Route::resource('/dashboard/returns', ReturnController::class);
+    Route::resource('/dashboard/books', BookController::class);
+
+
+
+        Route::get('/dashboard',[DashboardController::class,'dashBoard'])->name('dashboard');
+
 });
 
 Route::controller(AuthController::class)->group(function(){

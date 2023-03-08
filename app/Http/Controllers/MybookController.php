@@ -33,7 +33,11 @@ class MybookController extends Controller
         return redirect()->route('borrows')->with('success', 'Berhasil Mengajukan Peminjaman!');
     }
 
-    public function update(Request $request){
 
+
+
+    public function update(Borrow $borrow){
+        $borrow->update(['status' => 'Sudah Kembali']);
+        return redirect()->route('returns')->with('success','Berhasil mengembalikan');
     }
 }

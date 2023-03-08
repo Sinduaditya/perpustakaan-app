@@ -38,22 +38,29 @@
                                         <td>{{ $return->tgl_pinjam->locale('id_ID')->isoFormat('LL') }}</td>
                                         <td>{{ $return->duration }} &nbsp;Hari</td>
                                         <td>{{ $return->jumlah }} &nbsp;Buku</td>
-                                        <td>{{ $return->denda }}</td>
+                                        <td>Rp.&nbsp;{{ $return->denda }}</td>
                                         <td>
-                                            @if ($return->status == 'Terkonfirmasi')
-                                                Belum Kembali
+
+                                            @if ($return->status == 'Terkonfirmasi' && $return->denda >= 0)
+                                                <div class="badge badge-danger"> Belum Kembali</div>
                                             @elseif ($return->status == 'Menunggu')
-                                                Belum Konfirmasi
+                                                <div class="badge badge-warning">Belum Konfirmasi
+                                                </div>
+                                            @elseif ($return->status == 'Sudah Kembali')
+                                                <div class="badge badge-success">Sudah Kembali</div>
                                             @else
                                                 {{ $return->status }}
                                             @endif
                                         </td>
                                         <td>
-                                            <form action="" method="POST">
-                                                <a href="" class="btn btn-primary">
+                                            <form action="{{ route('returns.destroy', $return->id_pinjam) }}"
+                                                method="POST">
+                                                <a href="{{ route('returns.edit', $return->id_pinjam) }}"
+                                                    class="btn btn-primary">
                                                     <i class="fas fa-fw fa-edit"></i>
                                                 </a>
-
+                                                @csrf
+                                                @method('DELETE')
                                                 <button type="submit" class="btn btn-danger">
                                                     <i class="fas fa-fw fa-trash"></i>
                                                 </button>

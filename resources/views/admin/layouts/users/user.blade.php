@@ -42,11 +42,22 @@
                                 @foreach ($users as $user)
                                     <tr>
                                         <td>{{ $user->username }}</td>
-                                        {{-- <td>{{ $user->password }}</td> --}}
+
                                         <td>{{ $user->alamat }}</td>
                                         <td>{{ $user->no_user }}</td>
                                         <td>{{ $user->no_telepon }}</td>
-                                        <td>{{ $user->roles }}</td>
+                                        <td>
+                                            @if ($user->roles == 'Admin')
+                                                <div class="badge bg-danger text-white px-2 py-1 rounded-pill">
+                                                    {{ $user->roles }}</div>
+                                            @elseif($user->roles == 'Pustakawan')
+                                                <div class="badge bg-primary text-white px-2 py-1 rounded-pill">
+                                                    {{ $user->roles }}
+                                                </div>
+                                            @else
+                                                <div class="badge bg-info px-2 py-1 text-white rounded-pill">Siswa</div>
+                                            @endif
+                                        </td>
                                         <td>
                                             <form action="{{ route('users.destroy', $user->id_user) }}" method="POST">
                                                 <a href="{{ route('users.edit', $user->id_user) }}" class="btn btn-primary">
@@ -63,6 +74,9 @@
                                 @endforeach
                             </tbody>
                         </table>
+                        <div>
+                            {{ $users->links() }}
+                        </div>
                     </div>
                 </div>
             </div>

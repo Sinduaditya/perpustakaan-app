@@ -13,6 +13,7 @@
     @include('library.partials._navbar')
     @yield('content')
     @include('library.script')
+
 </body>
 
 </html>

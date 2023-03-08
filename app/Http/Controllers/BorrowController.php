@@ -80,7 +80,7 @@ class BorrowController extends Controller
         ]);
 
         Borrow::where('id_pinjam', $id)->update($data);
-        return \redirect()->route('borrows.index')->with('success','User has been updated successfully');
+        return \redirect()->route('borrows.index')->with('success','Borrow has been updated successfully');
     }
 
     /**

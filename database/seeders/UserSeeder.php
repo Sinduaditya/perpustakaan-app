@@ -22,6 +22,14 @@ class UserSeeder extends Seeder
             'no_user' => '7979',
             'no_telepon' => '567897',
             'roles' => 'Admin',
+
+
+            'username' => 'Siswa',
+            'password' => bcrypt('password'),
+            'alamat' => 'jalan siswa',
+            'no_user' => '9797',
+            'no_telepon' => '45768979',
+            'roles' => 'Member',
         ]);
     }
 }

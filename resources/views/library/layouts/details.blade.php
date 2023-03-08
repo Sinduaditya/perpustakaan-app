@@ -50,9 +50,10 @@
                                                     Pinjam
                                                 </button>
                                             </div>
-                                            <div class="m-2 m-4">
-                                                <input type="number" id="pinjam" name="duration" class="jumlah form-control"
+                                            <div class="mb-4">
+                                                <input type="number" id="pinjam" name="duration" class="jumlah rounded"
                                                     placeholder="Lama Pinjam" required>
+                                                <label for="pinjam">Hari</label>
                                                 @error('duration')
                                                     <span class="text-danger">{{ $message }}</span>
                                                 @enderror
@@ -61,8 +62,7 @@
                                 </form>
                             @endif
                             @guest
-                                <button type="button" class="btn btn-outline-secondary btn-lg d-block mx-auto px-5 my-5"
-                                    disabled>Anda
+                                <button type="button" class="btn btn-primary btn-lg d -block mx-auto px-5 my-5" disabled>Anda
                                     harus login untuk bisa meminjam</button>
                             @endguest
                         </div>

@@ -22,5 +22,6 @@
      $('#dataTable').DataTable({
          info: false,
          showing: false,
+         paging: false,
      });
  </script>

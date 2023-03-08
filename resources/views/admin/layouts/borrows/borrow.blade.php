@@ -35,9 +35,19 @@
                                         <td>{{ $borrow->book->judul_buku }}</td>
                                         <td>{{ $borrow->user->username }}</td>
                                         <td>{{ $borrow->tgl_pinjam->locale('id_ID')->isoFormat('LL') }}</td>
-                                        <td>{{ $borrow->duration }}</td>
-                                        <td>{{ $borrow->jumlah }}</td>
-                                        <td>{{ $borrow->status }}</td>
+                                        <td>{{ $borrow->duration }} &nbsp; Hari</td>
+                                        <td>{{ $borrow->jumlah }} &nbsp; Buku</td>
+                                        <td>
+                                            @if ($borrow->status == 'Menunggu')
+                                                <div class="badge badge-info">Menunggu</div>
+                                            @elseif ($borrow->status == 'Terkonfirmasi')
+                                                <div class="badge badge-success">Terkonfirmasi</div>
+                                            @elseif($borrow->status == 'Sudah Kembali')
+                                                <div class="badge badge-success">Sudah Kembali</div>
+                                            @elseif ($borrow->status == 'Gagal')
+                                                <div class="badge badge-danger">Gagal</div>
+                                            @endif
+                                        </td>
                                         <td>
                                             <form action="{{ route('borrows.destroy', $borrow->id_pinjam) }}"
                                                 method="POST">

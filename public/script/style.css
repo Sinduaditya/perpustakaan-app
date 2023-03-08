@@ -126,3 +126,16 @@ input.form-control:focus {
 .bg-status {
     background-color: #3E54AC;
 }
+
+
+/* return */
+
+.return {
+    box-shadow: 1px 10px 16px 4px rgba(193, 183, 183, 0.75);
+    -webkit-box-shadow: 1px 10px 16px 4px rgba(193, 183, 183, 0.75);
+    -moz-box-shadow: 1px 10px 16px 4px rgba(193, 183, 183, 0.75);
+    padding: 30px 20px 30px 20px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 22px;
+    ;
+}

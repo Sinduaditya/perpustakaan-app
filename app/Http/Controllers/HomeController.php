@@ -25,7 +25,8 @@ class HomeController extends Controller
     }
 
     public function return(){
-        return \view('library.layouts.returns');
+        $returns = Borrow::where('id_user', auth()->id())->latest('id_pinjam')->paginate(5);
+        return \view('library.layouts.returns', compact('returns'));
     }
 
     public function search(Request $request){

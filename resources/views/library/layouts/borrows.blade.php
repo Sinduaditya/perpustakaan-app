@@ -9,7 +9,10 @@
                     {{ $message }}
                 </div>
             @endif
-            <h3 class="mb-3">Peminjaman Anda</h3>
+            <h3 class="mb-3">Peminjaman
+            </h3>
+
+
             <div class="container">
                 <div class="row">
                     @guest
@@ -24,15 +27,14 @@
                                         <h3>{{ $item->book->judul_buku }}</h3>
                                         <p>Kode Buku : {{ $item->book->kode_buku }}</p>
                                         <p>Tgl Pinjam : {{ $item->tgl_pinjam->locale('id_ID')->isoFormat('LL') }}</p>
-                                        <p>Durasi : {{ $item->duration }} &nbsp; Hari</p>
+                                        <p>Durasi : {{ $item->duration }}&nbsp;Hari</p>
+                                        <p><span class="font-weight-bold">Jumlah:{{ $item->jumlah }}&nbsp;Buku
+                                            </span>
+                                        </p>
                                         <div
-                                            class="d-flex align-items-center justify-content-between rounded-pill bg-light px-2 py-2 mt-4">
-                                            <p class="small mb-0"><span class="font-weight-bold">Jumlah:
-                                                    &nbsp;{{ $item->jumlah }}
-                                                </span>
-                                            </p>
+                                            class="d-flex align-items-center justify-content-between flex-column rounded-pill bg-light px-2 py-2 mt-4">
                                             @if ($item->status == 'Terkonfirmasi')
-                                                <div class=" bg-status px-3 p-1 p-auto rounded-pill">
+                                                <div class=" bg-success px-3 p-1 p-auto rounded-pill">
                                                     <div class="text-white fw-thin">
                                                         {{ $item->status }}
                                                     </div>
@@ -41,6 +43,12 @@
                                                 <div class="bg-danger px-3 p-1 p-auto rounded-pill">
                                                     <div class="text-white fw-thin">
                                                         {{ $item->status }}
+                                                    </div>
+                                                </div>
+                                            @elseif($item->status == 'Sudah Kembali')
+                                                <div class="bg-success px-3  p-auto rounded-pill">
+                                                    <div class="text-white fw-thin">
+                                                        Sudah diKembalikan
                                                     </div>
                                                 </div>
                                             @else

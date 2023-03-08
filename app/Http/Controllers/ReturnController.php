@@ -58,7 +58,8 @@ class ReturnController extends Controller
      */
     public function edit($id)
     {
-        //
+        $borrows = Borrow::where('id_pinjam', $id)->first();
+        return view('admin.layouts.returns.edit', compact('borrows'));
     }
 
     /**
@@ -70,7 +71,14 @@ class ReturnController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'status' => 'required',
+            'denda' => 'required',
+
+        ]);
+
+         Borrow::where('id_pinjam', $id)->update($data);
+        return redirect()->route('returns.index')->with('success','Return has been updated successfully');
     }
 
     /**
@@ -81,6 +89,7 @@ class ReturnController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Borrow::where('id_pinjam', $id)->delete();
+        return \redirect()->route('returns.index')->with('success','Return has been deleted successfully');
     }
 }
